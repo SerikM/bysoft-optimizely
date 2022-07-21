@@ -235,3 +235,4 @@ C:\git\opti\Bysoft.Optimizely\Bysoft.Web\obj\Debug\Bysoft.Web.csproj.CoreCompile
 C:\git\opti\Bysoft.Optimizely\Bysoft.Web\obj\Debug\Bysoft.Web.csproj.CopyComplete
 C:\git\opti\Bysoft.Optimizely\Bysoft.Web\obj\Debug\Bysoft.Web.dll
 C:\git\opti\Bysoft.Optimizely\Bysoft.Web\obj\Debug\Bysoft.Web.pdb
+C:\git\opti\Bysoft.Optimizely\Bysoft.Web\obj\Debug\Bysoft.Web.csproj.AssemblyReference.cache
