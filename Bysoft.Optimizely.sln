@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.32413.511
+VisualStudioVersion = 16.0.32630.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bysoft.Web", "Bysoft.Web\Bysoft.Web.csproj", "{66E8504E-10B0-49D9-8777-8FB0F127821E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bysoft.Optimizely", "Bysoft.Optimizely.csproj", "{08A3F373-D27A-432F-ACCF-8278FB9D9A3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{66E8504E-10B0-49D9-8777-8FB0F127821E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{66E8504E-10B0-49D9-8777-8FB0F127821E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{66E8504E-10B0-49D9-8777-8FB0F127821E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{66E8504E-10B0-49D9-8777-8FB0F127821E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A3F373-D27A-432F-ACCF-8278FB9D9A3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A3F373-D27A-432F-ACCF-8278FB9D9A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A3F373-D27A-432F-ACCF-8278FB9D9A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A3F373-D27A-432F-ACCF-8278FB9D9A3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9CEA8527-B316-475C-A798-71F2348D719E}
+		SolutionGuid = {203E0DBF-0BA7-491A-BBC3-98FD0E416606}
 	EndGlobalSection
 EndGlobal
