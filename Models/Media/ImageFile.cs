@@ -1,7 +1,10 @@
-using EPiServer.Core;
+﻿using EPiServer.Core;
 using EPiServer.DataAnnotations;
 using EPiServer.Framework.DataAnnotations;
-using System.ComponentModel.DataAnnotations;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
 namespace Bysoft.Optimizely.Models.Media
 {
@@ -9,12 +12,6 @@ namespace Bysoft.Optimizely.Models.Media
     [MediaDescriptor(ExtensionString = "jpg,jpeg,jpe,ico,gif,bmp,png")]
     public class ImageFile : ImageData
     {
-        /// <summary>
-        /// Gets or sets the copyright.
-        /// </summary>
-        /// <value>
-        /// The copyright.
-        /// </value>
         public virtual string Copyright { get; set; }
     }
 }

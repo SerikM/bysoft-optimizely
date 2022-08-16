@@ -2,8 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-using Bysoft.Optimizely.Business.Rendering;
-using Bysoft.Optimizely.Models.Properties;
+using EPiServer.SpecializedProperties;
 using EPiServer.Web;
 
 namespace Bysoft.Optimizely.Models.Pages
@@ -11,11 +10,9 @@ namespace Bysoft.Optimizely.Models.Pages
     /// <summary>
     /// Base class for all page types
     /// </summary>
-    public abstract class SitePageData : PageData, ICustomCssInContentArea
+    public abstract class SitePageData : PageData /*, ICustomCssInContentArea */
     {
-        [Display(
-            GroupName = Global.GroupNames.MetaData,
-            Order = 100)]
+        [Display(GroupName = Constants.GroupNames.MetaData, Order = 100)]
         [CultureSpecific]
         public virtual string MetaTitle
         {
@@ -31,35 +28,25 @@ namespace Bysoft.Optimizely.Models.Pages
             set { this.SetPropertyValue(p => p.MetaTitle, value); }
         }
 
-        [Display(
-            GroupName = Global.GroupNames.MetaData,
-            Order = 200)]
+        [Display(GroupName = Constants.GroupNames.MetaData, Order = 200)]
         [CultureSpecific]
         [BackingType(typeof(PropertyStringList))]
         public virtual string[] MetaKeywords { get; set; }
 
-        [Display(
-            GroupName = Global.GroupNames.MetaData,
-            Order = 300)]
+        [Display(GroupName = Constants.GroupNames.MetaData, Order = 300)]
         [CultureSpecific]
         [UIHint(UIHint.Textarea)]
         public virtual string MetaDescription { get; set; }
 
-        [Display(
-            GroupName = Global.GroupNames.MetaData,
-            Order = 400)]
+        [Display(GroupName = Constants.GroupNames.MetaData, Order = 400)]
         [CultureSpecific]
         public virtual bool DisableIndexing { get; set; }
 
-        [Display(
-            GroupName = SystemTabNames.Content,
-            Order = 100)]
+        [Display(GroupName = SystemTabNames.Content, Order = 100)]
         [UIHint(UIHint.Image)]
         public virtual ContentReference PageImage { get; set; }
 
-        [Display(
-            GroupName = SystemTabNames.Content,
-            Order = 200)]
+        [Display(GroupName = SystemTabNames.Content, Order = 200)]
         [CultureSpecific]
         [UIHint(UIHint.Textarea)]
         public virtual string TeaserText
@@ -76,21 +63,17 @@ namespace Bysoft.Optimizely.Models.Pages
             set { this.SetPropertyValue(p => p.TeaserText, value); }
         }
 
-        [Display(
-            GroupName = SystemTabNames.Settings,
-            Order = 200)]
-        [CultureSpecific]
-        public virtual bool HideSiteHeader { get; set; }
-
-        [Display(
-            GroupName = SystemTabNames.Settings,
-            Order = 300)]
-        [CultureSpecific]
-        public virtual bool HideSiteFooter { get; set; }
-
         public string ContentAreaCssClass
         {
             get { return "teaserblock"; } //Page partials should be style like teasers
         }
+
+        [Display(GroupName = SystemTabNames.Settings, Order = 200)]
+        [CultureSpecific]
+        public virtual bool HideSiteHeader { get; set; }
+
+        [Display(GroupName = SystemTabNames.Settings, Order = 300)]
+        [CultureSpecific]
+        public virtual bool HideSiteFooter { get; set; }
     }
 }

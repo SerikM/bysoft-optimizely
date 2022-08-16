@@ -1,20 +1,21 @@
-using System.ComponentModel.DataAnnotations;
+﻿using EPiServer;
 using EPiServer.Core;
 using EPiServer.DataAnnotations;
 using EPiServer.Shell.ObjectEditing;
 using EPiServer.Web;
-using EPiServer;
+using System.ComponentModel.DataAnnotations;
 
 namespace Bysoft.Optimizely.Models.Blocks
 {
     /// <summary>
     /// Used to provide a composite property on the start page to set site logotype settings
     /// </summary>
-    [SiteContentType(
-        GUID = "09854019-91A5-4B93-8623-17F038346001",
-        AvailableInEditMode = false)] // Should not be created and added to content areas by editors, the SiteLogotypeBlock is only used as a property type
-    [SiteImageUrl]
-    public class SiteLogotypeBlock : SiteBlockData
+    [ContentType(
+        GUID = "09854019-91A5-4B93-8623-17F038346001", 
+        AvailableInEditMode = false,
+        GroupName = Constants.GroupNames.Default)] 
+    [ImageUrl("~/Static/gfx/page-type-thumbnail.png")]
+    public class SiteLogotypeBlock : BlockData
     {
         /// <summary>
         /// Gets the site logotype URL

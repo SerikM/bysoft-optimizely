@@ -1,6 +1,10 @@
-using System.Web.Optimization;
-using EPiServer.Framework;
+﻿using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Optimization;
 
 namespace Bysoft.Optimizely.Business.Initialization
 {
@@ -15,11 +19,11 @@ namespace Bysoft.Optimizely.Business.Initialization
             }
         }
 
-        // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
+
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
-                        "~/Static/js/jquery.js", //jquery.js can be removed and linked from CDN instead, we use a local one for demo purposes without internet connectionzz
+                        "~/Static/js/jquery.js", 
                         "~/Static/js/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css")

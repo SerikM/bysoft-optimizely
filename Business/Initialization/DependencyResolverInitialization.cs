@@ -1,10 +1,14 @@
-using System.Web.Mvc;
+﻿using Bysoft.Optimizely.Business.Rendering;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
-using Bysoft.Optimizely.Business.Rendering;
 using EPiServer.Web.Mvc;
 using EPiServer.Web.Mvc.Html;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Bysoft.Optimizely.Business.Initialization
 {
@@ -13,13 +17,11 @@ namespace Bysoft.Optimizely.Business.Initialization
     {
         public void ConfigureContainer(ServiceConfigurationContext context)
         {
-            //Implementations for custom interfaces can be registered here.
-
             context.ConfigurationComplete += (o, e) =>
             {
                 //Register custom implementations that should be used in favour of the default implementations
-                context.Services.AddTransient<IContentRenderer, ErrorHandlingContentRenderer>()
-                    .AddTransient<ContentAreaRenderer, AlloyContentAreaRenderer>();
+                context.Services
+                .AddTransient<IContentRenderer, ErrorHandlingContentRenderer>();
             };
         }
 

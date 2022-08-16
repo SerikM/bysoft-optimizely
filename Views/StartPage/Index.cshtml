@@ -1,4 +1,5 @@
 @using Bysoft.Optimizely
 @model PageViewModel<Bysoft.Optimizely.Models.Pages.StartPage>
 
-@Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row equal-height", tag = Global.ContentAreaTags.FullWidth })
+
+@Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row equal-height", tag = Constants.ContentAreaTags.FullWidth})

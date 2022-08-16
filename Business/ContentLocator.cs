@@ -1,13 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using Bysoft.Optimizely.Models.Pages;
+﻿using Bysoft.Optimizely.Models.Pages;
 using EPiServer;
 using EPiServer.Core;
 using EPiServer.Filters;
 using EPiServer.Shell.Configuration;
 using EPiServer.Web;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Web;
+using System.Web.WebPages;
+using StartPage = Bysoft.Optimizely.Models.Pages.StartPage;
 
 namespace Bysoft.Optimizely.Business
 {
@@ -95,20 +98,19 @@ namespace Bysoft.Optimizely.Business
             return _pageCriteriaQueryService.FindPagesWithCriteria(pageLink, criteria);
         }
 
-        /// <summary>
-        /// Returns all contact pages beneath the main contacts container
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<ContactPage> GetContactPages()
-        {
-            var contactsRootPageLink = _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage).ContactsPageLink;
 
-            if (ContentReference.IsNullOrEmpty(contactsRootPageLink))
+        public IEnumerable<ServicePage> GetServicePages()
+        {
+            var servicesRootPageLink = _contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage).ServicePageLink;
+
+            if (ContentReference.IsNullOrEmpty(servicesRootPageLink))
             {
                 throw new MissingConfigurationException("No contact page root specified in site settings, unable to retrieve contact pages");
             }
 
-            return _contentLoader.GetChildren<ContactPage>(contactsRootPageLink).OrderBy(p => p.PageName);
+            return _contentLoader.GetChildren<ServicePage>(servicesRootPageLink).OrderBy(p => p.PageName);
         }
+
     }
+
 }

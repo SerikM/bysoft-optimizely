@@ -1,23 +1,17 @@
-using System;
-using System.IO;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Mvc.Html;
+﻿using Bysoft.Optimizely.Models.ViewModels;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.Security;
-using Bysoft.Optimizely.Models.ViewModels;
 using EPiServer.Web.Mvc;
+using System;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Mvc.Html;
 
 namespace Bysoft.Optimizely.Business.Rendering
 {
-    /// <summary>
-    /// Wraps an MvcContentRenderer and adds error handling to ensure that blocks and other content
-    /// rendered as parts of pages won't crash the entire page if a non-critical exception occurs while rendering it.
-    /// </summary>
-    /// <remarks>
-    /// Prints an error message for editors so that they can easily report errors to developers.
-    /// </remarks>
     public class ErrorHandlingContentRenderer : IContentRenderer
     {
         private readonly MvcContentRenderer _mvcRenderer;

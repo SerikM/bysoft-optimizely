@@ -1,54 +1,31 @@
 using System.ComponentModel.DataAnnotations;
+using Bysoft.Optimizely.Models.Blocks;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-using EPiServer.SpecializedProperties;
-using Bysoft.Optimizely.Models.Blocks;
 
 namespace Bysoft.Optimizely.Models.Pages
 {
-    /// <summary>
-    /// Used for the site's start page and also acts as a container for site settings
-    /// </summary>
     [ContentType(
-        GUID = "19671657-B684-4D95-A61F-8DD4FE60D559",
-        GroupName = Global.GroupNames.Specialized)]
-    [SiteImageUrl]
-    [AvailableContentTypes(
-        Availability.Specific,
-        Include = new[] { typeof(ContainerPage), typeof(ProductPage), typeof(StandardPage), typeof(ISearchPage), typeof(LandingPage), typeof(ContentFolder) }, // Pages we can create under the start page...
-        ExcludeOn = new[] { typeof(ContainerPage), typeof(ProductPage), typeof(StandardPage), typeof(ISearchPage), typeof(LandingPage) })] // ...and underneath those we can't create additional start pages
+        DisplayName = "Start Page", 
+        GUID = "19671657-B684-4D95-A61F-8DD4FE60D559", 
+        GroupName = Constants.GroupNames.Specialized,
+        Description = "use this page type for the start page.")]
+    [ImageUrl(Constants.StaticGraphicsFolderPath + "page-type-thumbnail-standard.png")]
+    [AvailableContentTypes(Include = new[] { typeof(StandardPage), typeof(ServicePage)})]
     public class StartPage : SitePageData
     {
-        [Display(
-            GroupName = SystemTabNames.Content,
-            Order = 320)]
+        [Display(GroupName = SystemTabNames.Content, Order = 320)]
         [CultureSpecific]
         public virtual ContentArea MainContentArea { get; set; }
 
-        [Display(GroupName = Global.GroupNames.SiteSettings, Order = 300)]
-        public virtual LinkItemCollection ProductPageLinks { get; set; }
-
-        [Display(GroupName = Global.GroupNames.SiteSettings, Order = 350)]
-        public virtual LinkItemCollection CompanyInformationPageLinks { get; set; }
-
-        [Display(GroupName = Global.GroupNames.SiteSettings, Order = 400)]
-        public virtual LinkItemCollection NewsPageLinks { get; set; }
-
-        [Display(GroupName = Global.GroupNames.SiteSettings, Order = 450)]
-        public virtual LinkItemCollection CustomerZonePageLinks { get; set; }
-
-        [Display(GroupName = Global.GroupNames.SiteSettings)]
-        public virtual PageReference GlobalNewsPageLink { get; set; }
-
-        [Display(GroupName = Global.GroupNames.SiteSettings)]
-        public virtual PageReference ContactsPageLink { get; set; }
-
-        [Display(GroupName = Global.GroupNames.SiteSettings)]
+        [Display(GroupName = Constants.GroupNames.SiteSettings)]
         public virtual PageReference SearchPageLink { get; set; }
 
-        [Display(GroupName = Global.GroupNames.SiteSettings)]
+        [Display(GroupName = Constants.GroupNames.SiteSettings)]
         public virtual SiteLogotypeBlock SiteLogotype { get; set; }
 
+        [Display(GroupName = Constants.GroupNames.SiteSettings)]
+        public virtual PageReference ServicePageLink { get; set; }
     }
 }

@@ -1,15 +1,17 @@
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using System.Web.Security;
-using Bysoft.Optimizely.Models.Pages;
+﻿using Bysoft.Optimizely.Models.Pages;
 using Bysoft.Optimizely.Models.ViewModels;
 using EPiServer;
 using EPiServer.Core;
 using EPiServer.Data;
 using EPiServer.Web;
 using EPiServer.Web.Routing;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
+using System.Web.Security;
 
 namespace Bysoft.Optimizely.Business
 {
@@ -40,25 +42,21 @@ namespace Bysoft.Optimizely.Business
             var startPage = _contentLoader.Get<StartPage>(startPageContentLink);
 
             return new LayoutModel
-                {
-                    Logotype = startPage.SiteLogotype,
-                    LogotypeLinkUrl = new MvcHtmlString(_urlResolver.GetUrl(SiteDefinition.Current.StartPage)),
-                    ProductPages = startPage.ProductPageLinks,
-                    CompanyInformationPages = startPage.CompanyInformationPageLinks,
-                    NewsPages = startPage.NewsPageLinks,
-                    CustomerZonePages = startPage.CustomerZonePageLinks,
-                    LoggedIn = requestContext.HttpContext.User.Identity.IsAuthenticated,
-                    LoginUrl = new MvcHtmlString(GetLoginUrl(currentContentLink)),
-                    SearchActionUrl = new MvcHtmlString(EPiServer.Web.Routing.UrlResolver.Current.GetUrl(startPage.SearchPageLink)),
-                    IsInReadonlyMode = _databaseMode.DatabaseMode == DatabaseMode.ReadOnly
-                };
+            {
+                Logotype = startPage.SiteLogotype,
+                LogotypeLinkUrl = new MvcHtmlString(_urlResolver.GetUrl(SiteDefinition.Current.StartPage)),
+                LoggedIn = requestContext.HttpContext.User.Identity.IsAuthenticated,
+                LoginUrl = new MvcHtmlString(GetLoginUrl(currentContentLink)),
+                SearchActionUrl = new MvcHtmlString(EPiServer.Web.Routing.UrlResolver.Current.GetUrl(startPage.SearchPageLink)),
+                IsInReadonlyMode = _databaseMode.DatabaseMode == DatabaseMode.ReadOnly
+            };
         }
 
         private string GetLoginUrl(ContentReference returnToContentLink)
         {
             return string.Format(
                 "{0}?ReturnUrl={1}",
-                (FormsAuthentication.IsEnabled ? FormsAuthentication.LoginUrl : VirtualPathUtility.ToAbsolute(Global.AppRelativeLoginPath)),
+                (FormsAuthentication.IsEnabled ? FormsAuthentication.LoginUrl : VirtualPathUtility.ToAbsolute(Constants.AppRelativeLoginPath)),
                 _urlResolver.GetUrl(returnToContentLink));
         }
 

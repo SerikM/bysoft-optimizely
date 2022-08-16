@@ -1,5 +1,6 @@
 using EPiServer.Core;
 using Bysoft.Optimizely.Models.Pages;
+using System.Collections.Generic;
 
 namespace Bysoft.Optimizely.Models.ViewModels
 {
@@ -15,5 +16,7 @@ namespace Bysoft.Optimizely.Models.ViewModels
         T CurrentPage { get; }
         LayoutModel Layout { get; set; }
         IContent Section { get; set; }
+        SitePageData StartPage { get; set; }
+        IEnumerable<SitePageData> MenuPages { get; set; }
     }
 }

@@ -13,21 +13,19 @@ namespace Bysoft.Optimizely
 {
     public class Startup
     {
-
         public void Configuration(IAppBuilder app)
         {
-
-            // Add CMS integration for ASP.NET Identity
+            //// Add CMS integration for ASP.NET Identity
             app.AddCmsAspNetIdentity<ApplicationUser>();
 
-            // Remove to block registration of administrators
-            app.UseAdministratorRegistrationPage(() => HttpContext.Current.Request.IsLocal);
+            //// Remove to block registration of administrators
+            //app.UseAdministratorRegistrationPage(() => HttpContext.Current.Request.IsLocal);
 
             // Use cookie authentication
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString(Global.LoginPath),
+                LoginPath = new PathString(Constants.LoginPath),
                 Provider = new CookieAuthenticationProvider
                 {
                     // If the "/util/login.aspx" has been used for login otherwise you don't need it you can remove OnApplyRedirect.

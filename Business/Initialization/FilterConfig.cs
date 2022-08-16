@@ -1,13 +1,14 @@
-using System.Web.Mvc;
-using EPiServer.Framework;
+﻿using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Bysoft.Optimizely.Business.Initialization
 {
-    /// <summary>
-    /// Module for registering filters which will be applied to controller actions.
-    /// </summary>
     [ModuleDependency(typeof(EPiServer.Web.InitializationModule))]
     public class FilterConfig : IInitializableModule
     {
