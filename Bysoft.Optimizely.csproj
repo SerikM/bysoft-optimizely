@@ -108,6 +108,9 @@
     <Reference Include="EPiServer.ContentApi.Routing, Version=2.19.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>packages\EPiServer.ContentDeliveryApi.Cms.2.19.0\lib\net461\EPiServer.ContentApi.Routing.dll</HintPath>
     </Reference>
+    <Reference Include="EPiServer.ContentApi.Search, Version=2.21.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>packages\EPiServer.ContentDeliveryApi.Search.2.21.1\lib\net461\EPiServer.ContentApi.Search.dll</HintPath>
+    </Reference>
     <Reference Include="EPiServer.Data, Version=11.20.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>packages\EPiServer.Framework.11.20.4\lib\net461\EPiServer.Data.dll</HintPath>
     </Reference>
@@ -390,6 +393,7 @@
     <Compile Include="Business\ContentLocator.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initialization\BundleConfig.cs" />
+    <Compile Include="Business\Initialization\ContentDeliveryApiInitialization.cs" />
     <Compile Include="Business\Initialization\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Initialization\FilterConfig.cs" />
     <Compile Include="Business\PageContextActionFilter.cs" />

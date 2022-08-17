@@ -1,6 +1,7 @@
 using System;
 using System.Web;
 using EPiServer.Cms.UI.AspNetIdentity;
+using EPiServer.ContentApi.OAuth;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -15,6 +16,15 @@ namespace Bysoft.Optimizely
     {
         public void Configuration(IAppBuilder app)
         {
+            app.UseContentApiIdentityOAuthAuthorization<ApplicationUserManager<ApplicationUser>,
+            ApplicationUser>(new ContentApiOAuthOptions
+            {
+              RequireSsl = false, // simplifies testing in Postman
+              AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(60),
+              RefreshTokenExpireTimeSpan = TimeSpan.FromDays(14)
+             });
+
+
             //// Add CMS integration for ASP.NET Identity
             app.AddCmsAspNetIdentity<ApplicationUser>();
 
